@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Section</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Add New Section</h1>
+            <form action="/sections/add" method="POST">
+                <div class="field">
+                    <label class="label">Section Name</label>
+                    <div class="control">
+                        <input class="input" type="text" name="sectionName" placeholder="Section Name" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <input class="input" type="text" name="sectionDescription" placeholder="Description" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Duration</label>
+                    <div class="control">
+                        <input class="input" type="number" name="duration" placeholder="Duration in hours" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Is Main Task</label>
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" name="isMainTask">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Course</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="course">
+                                <!-- Dynamically populate this based on courses -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Add Section</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

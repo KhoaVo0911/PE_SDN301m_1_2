@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Section</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Edit Section</h1>
+            <form action="/sections/update/{{section._id}}" method="POST">
+                <div class="field">
+                    <label class="label">Section Name</label>
+                    <div class="control">
+                        <input class="input" type="text" name="sectionName" placeholder="Section Name" value="{{section.sectionName}}" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        <input class="input" type="text" name="sectionDescription" placeholder="Description" value="{{section.sectionDescription}}" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Duration (hours)</label>
+                    <div class="control">
+                        <input class="input" type="number" name="duration" placeholder="Duration" value="{{section.duration}}" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="checkbox">
+                        <input type="checkbox" name="isMainTask" {{#if section.isMainTask}}checked{{/if}}>
+                        Is Main Task?
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label class="label">Course</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="course">
+                                {{#each courses}}
+                                    <option value="{{this._id}}" {{#if (isCurrentCourse ../section.course this._id)}}selected{{/if}}>{{this.courseName}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Update Section</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
