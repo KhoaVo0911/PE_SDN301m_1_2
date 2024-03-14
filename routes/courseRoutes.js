@@ -5,8 +5,8 @@ import { protect } from "../middlewares/auth.js";
 const router = express.Router();
 
 router.post("/courses/", protect, createCourse);
-router.get('/courses', getAllCourses);
-router.put('/courses/:id', updateCourse);
-router.delete('/courses/:id', deleteCourse);
+router.get('/courses', protect, getAllCourses);
+router.put('/courses/:id', protect, updateCourse);
+router.delete('/courses/:id', protect, deleteCourse);
 
 export default router;
